@@ -19,10 +19,10 @@ async function checkUpdate() {
     const itemRegex = new RegExp(/<item>[\s\S]*?<\/item>/g);
 	$.notify('开始执行');
     html.match(itemRegex).forEach(async (item) => {
+        $.notify('获取到值');
         let name = item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)[1];
         let url = item.match(/<link>([\s\S]*?)<\/link>/)[1];
         let imgurl = item.match(/<img src=\"(.*)\" referrerpolicy/)[1];
-		$.notify('获取到值');
         let notificationURL = {
             "open-url": url,
             "media-url": imgurl
