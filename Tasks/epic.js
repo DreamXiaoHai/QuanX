@@ -41,6 +41,7 @@ async function checkUpdate() {
 async function fetchGameInfo(url) {
     const html = await $.http.get({url}).then((resp) => resp.body);
     const description = html.match(/"og:description" content="([\s\S]*?)"/)[1];
+	$.notify('获取descr');
     const publisher = "";
     return {
         description,
