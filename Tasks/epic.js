@@ -17,6 +17,7 @@ async function checkUpdate() {
     })
         .then((resp) => resp.body);
     const itemRegex = new RegExp(/<item>[\s\S]*?<\/item>/g);
+	$.notify('开始执行');
     html.match(itemRegex).forEach(async (item) => {
         let name = item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)[1];
         let url = item.match(/<link>([\s\S]*?)<\/link>/)[1];
