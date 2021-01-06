@@ -17,7 +17,6 @@ async function checkUpdate() {
     })
         .then((resp) => resp.body);
     const itemRegex = new RegExp(/<item>[\s\S]*?<\/item>/g);
-	$.notify('开始执行');
     html.match(itemRegex).forEach(async (item) => {
         $.notify('获取到值');
         let name = item.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)[1];
@@ -28,6 +27,7 @@ async function checkUpdate() {
             "media-url": imgurl
         }
         let time = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)[1];
+		$.notify("数据准备完成")
         //let {description, publisher} = await fetchGameInfo(url);
         $.notify(
             `🎮 [Epic 限免]  ${name}`,
