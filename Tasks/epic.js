@@ -28,11 +28,11 @@ async function checkUpdate() {
             "media-url": imgurl
         }
         let time = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)[1];
-        let {description, publisher} = await fetchGameInfo(url);
+        //let {description, publisher} = await fetchGameInfo(url);
         $.notify(
             `🎮 [Epic 限免]  ${name}`,
             `⏰ 发布时间: ${formatTime(time)}`,
-            `💡 游戏简介:\n${description}`,
+            //`💡 游戏简介:\n${description}`,
             notificationURL
         );
     });
